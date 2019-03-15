@@ -36,9 +36,16 @@ $(document).on("click", ".gifButton", function(event){
     .then(function(response){
         console.log(response);
         let listItem = $("<li>");
+        listItem.addClass(topic)
         let collapsibleHeader = $("<div>");
         collapsibleHeader.addClass("collapsible-header");
-        collapsibleHeader.text(topic);
+        let closeIcon = $("<i>");
+        closeIcon.addClass("material-icons");
+        closeIcon.addClass("close-button");
+        closeIcon.attr("data-topic", topic);
+        closeIcon.text("close");
+        collapsibleHeader.append(closeIcon);
+        collapsibleHeader.append(topic);
         let collapsibleBody = $("<div>");
         collapsibleBody.addClass("collapsible-body");
         listItem.append(collapsibleHeader);
@@ -69,6 +76,12 @@ $(document).on("click", ".gifButton", function(event){
 
     })
 
+})
+
+$(document).on("click", ".close-button", function() {
+    console.log("you want to delete me??");
+
+    $(this).parent().parent().css("display", "none");
 })
 
 $(document).on("click", ".gif", function(){
