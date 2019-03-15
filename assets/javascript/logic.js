@@ -23,8 +23,7 @@ function buttonRender() {
 
 $(document).on("click", ".gifButton", function(event){
     event.preventDefault();
-
-    console.log("clicked!");
+ 
     let topic = $(this).attr("data-name");
     let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
@@ -41,6 +40,7 @@ $(document).on("click", ".gifButton", function(event){
             let imageStill = response.data[i].images.fixed_width_still.url;
             let image = $("<img>");
             image.attr("src", imageStill);
+            image.attr("class", "gif");
             image.attr("data-still", imageStill);
             image.attr("data-animate", imageAnimate);
             image.attr("data-state", "still");
@@ -52,11 +52,20 @@ $(document).on("click", ".gifButton", function(event){
 
 })
 
-
+$(document).on("click", ".gif", function(){
+    let state = $(this).attr("data-state");
+    if (state==="still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    }
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+})
 
 $("#button-generator").on("click", function(event){
     event.preventDefault();
-    console.log("submit");
     let userInput = $("#user-input").val().trim();
     topics.push(userInput);
     buttonRender();
