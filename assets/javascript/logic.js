@@ -1,27 +1,64 @@
 let topics = [
-    "baby elephants",
-    "hipster",
-    "redwood forest",
-    "corgis"
+    "The Office",
+    "Psych",
+    "The Good Place",
+    "Sherlock"
 ]
 
+function buttonRender() {
 
-for (let i = 0; i < topics.length; i++) {
+    $(".button-drop").empty();
 
-let button = $("<button>");
-button.addClass("giphButton");
-button.attr("data-name", topics[i]);
-button.text(topics[i]);
-$(".button-drop").append(button);
+    for (let i = 0; i < topics.length; i++) {
 
+        let button = $("<button>");
+        button.addClass("gifButton");
+        button.attr("data-name", topics[i]);
+        button.text(topics[i]);
+        $(".button-drop").append(button);
+        
+    }
 }
 
-$(document).on("click", "giphButton", function(){
+
+$(document).on("click", ".gifButton", function(event){
+    event.preventDefault();
+
+    console.log("clicked!");
     let topic = $(this).attr("data-name");
-    let queryURL = 
+    let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
-    $.ajax
+    $.ajax ({
+        url: queryURL,
+        method: "GET"
+
+    })
+    .then(function(response){
+        console.log(response);
+        for(let i=0; i<response.data.length; i++){
+            let imageURL = response.data[i].images.fixed_width.url;
+            console.log(imageURL);
+            let image = $("<img>");
+            image.attr("src", imageURL);
+            image.attr("alt", "");
+            $(".gifs").prepend(image);
+        }
+
+    })
 
 
+})
+
+$("#button-generator").on("click", function(event){
+    event.preventDefault();
+    console.log("submit");
+    let userInput = $("#user-input").val().trim();
+    topics.push(userInput);
+    buttonRender();
+})
+
+
+$(document).ready(function() {
+    buttonRender();
 })
