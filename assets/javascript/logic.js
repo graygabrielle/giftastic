@@ -35,6 +35,15 @@ $(document).on("click", ".gifButton", function(event){
     })
     .then(function(response){
         console.log(response);
+        let listItem = $("<li>");
+        let collapsibleHeader = $("<div>");
+        collapsibleHeader.addClass("collapsible-header");
+        collapsibleHeader.text(topic);
+        let collapsibleBody = $("<div>");
+        collapsibleBody.addClass("collapsible-body");
+        listItem.append(collapsibleHeader);
+        listItem.append(collapsibleBody);
+        $(".gifs").append(listItem);
         for(let i=0; i<response.data.length; i++){
             let imageAnimate = response.data[i].images.fixed_width.url;
             let imageStill = response.data[i].images.fixed_width_still.url;
@@ -49,7 +58,7 @@ $(document).on("click", ".gifButton", function(event){
             image.attr("data-animate", imageAnimate);
             image.attr("data-state", "still");
             image.attr("alt", response.data[i].title);
-            $(".gifs").prepend(imageDiv);
+            $(".collapsible-body").append(imageDiv);
             $(imageDiv).prepend(image);
             let rating = "Rating: " + response.data[i].rating;
             let ratingTag = $("<p>");
@@ -85,3 +94,7 @@ $("#button-generator").on("click", function(event){
 $(document).ready(function() {
     buttonRender();
 })
+
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
