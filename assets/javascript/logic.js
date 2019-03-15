@@ -38,6 +38,10 @@ $(document).on("click", ".gifButton", function(event){
         for(let i=0; i<response.data.length; i++){
             let imageAnimate = response.data[i].images.fixed_width.url;
             let imageStill = response.data[i].images.fixed_width_still.url;
+            let imageDiv = $("<div>"); 
+            imageDiv.addClass("image-div");
+            let imageDivId = "image-div-" + i;
+            imageDiv.attr("id", imageDivId);
             let image = $("<img>");
             image.attr("src", imageStill);
             image.attr("class", "gif");
@@ -45,7 +49,13 @@ $(document).on("click", ".gifButton", function(event){
             image.attr("data-animate", imageAnimate);
             image.attr("data-state", "still");
             image.attr("alt", response.data[i].title);
-            $(".gifs").prepend(image);
+            $(".gifs").prepend(imageDiv);
+            $(imageDiv).prepend(image);
+            let rating = "Rating: " + response.data[i].rating;
+            let ratingTag = $("<p>");
+            ratingTag.text(rating);
+            $(imageDiv).append(ratingTag);
+
         }
 
     })
