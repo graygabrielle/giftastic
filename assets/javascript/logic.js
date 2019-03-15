@@ -26,7 +26,7 @@ $(document).on("click", ".gifButton", function(event){
 
     console.log("clicked!");
     let topic = $(this).attr("data-name");
-    let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
+    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
     $.ajax ({
