@@ -37,18 +37,22 @@ $(document).on("click", ".gifButton", function(event){
     .then(function(response){
         console.log(response);
         for(let i=0; i<response.data.length; i++){
-            let imageURL = response.data[i].images.fixed_width.url;
-            console.log(imageURL);
+            let imageAnimate = response.data[i].images.fixed_width.url;
+            let imageStill = response.data[i].images.fixed_width_still.url;
             let image = $("<img>");
-            image.attr("src", imageURL);
-            image.attr("alt", "");
+            image.attr("src", imageStill);
+            image.attr("data-still", imageStill);
+            image.attr("data-animate", imageAnimate);
+            image.attr("data-state", "still");
+            image.attr("alt", response.data[i].title);
             $(".gifs").prepend(image);
         }
 
     })
 
-
 })
+
+
 
 $("#button-generator").on("click", function(event){
     event.preventDefault();
