@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 html {
     background-image: url("../img/what-the-hex.png");
     background-repeat: repeat;
@@ -73,3 +83,6 @@ p {
     text-transform: capitalize;
 }
 
+.my-blue {
+    background: rgb(0, 90, 155) !important;
+}
