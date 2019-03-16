@@ -4,12 +4,9 @@ body {
     flex-direction: column;
 }
 
+
 main {
     flex: 1 0 auto;
-}
-
-.container {
-    background: #f9f9f9 !important;
 }
 
 html {
@@ -23,6 +20,8 @@ p {
     padding: 0;
     margin: 0;
     margin-bottom: 10px;
+    font-weight: 200;
+    transform: scaleY(1.1);
 }
 
 .gifButton {
@@ -32,8 +31,11 @@ p {
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
-    font-weight: bold;
     text-transform: capitalize;
+    font-weight: 200;
+    transform: scaleY(1.1);
+    font-size: 1.1em;
+    border: none;
 }
 
 .gifButton:hover {
@@ -42,19 +44,18 @@ p {
 }
 
 .gifButton:focus {
-    background:rgb(0, 90, 155);
+    background:rgb(0, 135, 232);
     color: white;
 }
 
-.gifButton:active {
-    background:rgb(0, 90, 155);
-    color: white;
-}
 
 #button-generator {
     border-radius: 5px;
     padding: 15px;
     color: gray;
+    font-weight: 200;
+    transform: scaleY(1.1);
+    font-size: 1.1em;
 }
 
 #button-generator:focus {
@@ -72,15 +73,24 @@ p {
 }
 
 .container {
-    background: white;
+    background: #f9f9f9;
     text-align: center;
     padding: 25px;
-    box-shadow: 2px 2px 5px #cccccc;
 
 }
 
-.collapsible-header {
+.collapsible-header{
     text-transform: capitalize;
+    font-weight: 200;
+    font-size: 1.3em;
+}
+
+.close-button {
+    line-height: 1.3em;
+}
+
+.collapsible-body {
+    background: white;
 }
 
 .my-blue {
@@ -91,18 +101,42 @@ p {
     height: 60px;
     border-top: 10px solid rgb(0, 135, 232);
     margin-top: 30px;
+    padding-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 200;
 
 }
 
 .header-height {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    line-height: 2em;
     font-size: 3em;
-    padding: 20px 0;
-    font-family: 'Monoton', cursive;
+    padding-top: 15px;
+    transform: scaleY(1.3);
+    font-family: 'Limelight', cursive;
+    word-spacing: 10px;
+    text-shadow: 2px 2px 2px black;
 
 }
+
 
 input[type=text]:focus {
     border-bottom: 1px solid #000 !important;
     box-shadow: 0 1px 0 0 #000 !important;
-  }
+    font-size: 1.3em;
+    font-weight: 200;
+}
+
+input[placeholder]{
+    font-weight: 200;
+    font-size: 1.3em;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+ul {
+    box-shadow: 0 0 0 0 !important;
+    border: none !important;
+}

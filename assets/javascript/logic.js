@@ -13,6 +13,8 @@ function buttonRender() {
 
         let button = $("<button>");
         button.addClass("gifButton");
+        button.addClass("waves-effect");
+        button.addClass("z-depth-2");
         button.attr("data-name", topics[i]);
         button.text(topics[i]);
         $(".button-drop").append(button);
@@ -35,13 +37,13 @@ $(document).on("click", ".gifButton", function(event){
         console.log(response);
         let listItem = $("<li>");
         listItem.addClass(topic);
+        listItem.addClass("z-depth-2");
 
         let collapsibleHeader = $("<div>");
         collapsibleHeader.addClass("collapsible-header");
         let closeIcon = $("<i>");
         closeIcon.addClass("material-icons");
         closeIcon.addClass("close-button");
-        closeIcon.attr("data-topic", topic);
         closeIcon.text("close");
         collapsibleHeader.append(closeIcon);
         collapsibleHeader.append(topic);
