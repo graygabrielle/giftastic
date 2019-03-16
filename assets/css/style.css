@@ -9,7 +9,7 @@ main {
 }
 
 .container {
-    background: #fcfcfc !important;
+    background: #f9f9f9 !important;
 }
 
 html {
@@ -84,7 +84,7 @@ p {
 }
 
 .my-blue {
-    background: rgb(0, 90, 155) !important;
+    background: rgb(0, 90, 155);
 }
 
 .footer-height {
@@ -95,7 +95,14 @@ p {
 }
 
 .header-height {
-    height: 100px;
     margin-bottom: 30px;
+    font-size: 3em;
+    padding: 20px 0;
+    font-family: 'Monoton', cursive;
 
 }
+
+input[type=text]:focus {
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+  }
