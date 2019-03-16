@@ -23,10 +23,8 @@ function buttonRender() {
 
 $(document).on("click", ".gifButton", function(event){
     event.preventDefault();
- 
     let topic = $(this).attr("data-name");
     let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
-
 
     $.ajax ({
         url: queryURL,
@@ -36,7 +34,8 @@ $(document).on("click", ".gifButton", function(event){
     .then(function(response){
         console.log(response);
         let listItem = $("<li>");
-        listItem.addClass(topic)
+        listItem.addClass(topic);
+
         let collapsibleHeader = $("<div>");
         collapsibleHeader.addClass("collapsible-header");
         let closeIcon = $("<i>");
@@ -50,14 +49,12 @@ $(document).on("click", ".gifButton", function(event){
         collapsibleBody.addClass("collapsible-body");
         listItem.append(collapsibleHeader);
         listItem.append(collapsibleBody);
-        $(".gifs").append(listItem);
+        $(".gifs").prepend(listItem);
         for(let i=0; i<response.data.length; i++){
             let imageAnimate = response.data[i].images.fixed_width.url;
             let imageStill = response.data[i].images.fixed_width_still.url;
             let imageDiv = $("<div>"); 
             imageDiv.addClass("image-div");
-            let imageDivId = "image-div-" + i;
-            imageDiv.attr("id", imageDivId);
             let image = $("<img>");
             image.attr("src", imageStill);
             image.attr("class", "gif");
@@ -65,7 +62,7 @@ $(document).on("click", ".gifButton", function(event){
             image.attr("data-animate", imageAnimate);
             image.attr("data-state", "still");
             image.attr("alt", response.data[i].title);
-            $(".collapsible-body").append(imageDiv);
+            $(collapsibleBody).append(imageDiv);
             $(imageDiv).prepend(image);
             let rating = "Rating: " + response.data[i].rating;
             let ratingTag = $("<p>");
