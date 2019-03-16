@@ -56,6 +56,8 @@ p {
     font-weight: 200;
     transform: scaleY(1.1);
     font-size: 1.1em;
+    margin-top: 15px;
+    margin-bottom: 30px
 }
 
 #button-generator:focus {

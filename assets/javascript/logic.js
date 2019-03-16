@@ -14,6 +14,7 @@ function buttonRender() {
         let button = $("<button>");
         button.addClass("gifButton");
         button.addClass("waves-effect");
+        button.addClass("waves-light");
         button.addClass("z-depth-2");
         button.attr("data-name", topics[i]);
         button.text(topics[i]);
