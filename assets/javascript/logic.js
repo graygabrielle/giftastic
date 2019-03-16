@@ -76,9 +76,8 @@ $(document).on("click", ".gifButton", function(event){
 })
 
 $(document).on("click", ".close-button", function() {
-    console.log("you want to delete me??");
 
-    $(this).parent().parent().css("display", "none");
+    $(this).parent().parent().empty();
 })
 
 $(document).on("click", ".gif", function(){
@@ -96,8 +95,16 @@ $(document).on("click", ".gif", function(){
 $("#button-generator").on("click", function(event){
     event.preventDefault();
     let userInput = $("#user-input").val().trim();
-    topics.push(userInput);
-    buttonRender();
+    if (!userInput) {
+        $("#user-input").attr("placeholder", "Please type in a TV show to generate a new blue button!");
+    }
+    else{
+        topics.push(userInput);
+        $("#user-input").val("");
+        buttonRender();
+        $("#user-input").attr("placeholder", "Add a TV show!");
+    }
+
 })
 
 
