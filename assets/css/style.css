@@ -49,18 +49,19 @@ p {
 }
 
 
-#button-generator {
+#button-generator, #clear-buttons {
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px;
     color: gray;
     font-weight: 200;
     transform: scaleY(1.1);
     font-size: 1.1em;
     margin-top: 15px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    margin-right: 20px;
 }
 
-#button-generator:focus {
+#button-generator:focus, #clear-buttons:focus {
     outline: none;
 }
 

@@ -110,6 +110,13 @@ $("#button-generator").on("click", function(event){
 
 })
 
+$("#clear-buttons").on("click", function(event){
+    event.preventDefault();
+    topics = [];
+    buttonRender();
+
+    
+})
 
 $(document).ready(function() {
     buttonRender();
